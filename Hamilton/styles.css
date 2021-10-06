@@ -1,0 +1,47 @@
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.Floor1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.Floor2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.Floor3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.Floor4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+.Floor5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.Floor6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+.Lift {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+}
