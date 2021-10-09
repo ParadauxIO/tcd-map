@@ -15,13 +15,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
         id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    //bounds: mybounds
 }).addTo(mymap);
 
-//L.map('mapid')
-
 function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
+    document.getElementById("click-coords-display").innerHTML = e.latlng;
 }
 
 mymap.on('click', onMapClick);
