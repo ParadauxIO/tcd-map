@@ -15,9 +15,13 @@
 
     <div>
         <span id="click-coords-display"></span> <br>
-        <span id="saved-coordinates">Enable saved co-ordinates to begin adding a building</span>
+        <span id="saved-coordinates"></span>
     </div>
 
-    <button onclick="startSavingLocations()"></button>
+    <button onclick="startSavingLocations()">Begin building</button>
+    <button onclick="endBuilding()">End building</button>
+    <button onclick="exportToConsole()">Export</button>
+
+    <span id="exported-json"></span>
 </body>
 </html>
