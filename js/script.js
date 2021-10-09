@@ -1,3 +1,5 @@
+let saveLocations = false;
+
 /**
  * Let each individual building be an individual object, meaning this should be in the form [{..}, {..}]
  * This is an array of objects.
@@ -32,6 +34,8 @@ let buildings = [{
  * between this syntax and the pre-existing function() {} you were using
  */
 let init = () => {
+    let coordinates = [];
+
     const mymap = L.map('mapid').fitBounds(L.latLngBounds(L.latLng(53.345806, -6.259954), L.latLng(53.341533, -6.249332))).setMaxBounds([
         [53.345806, -6.259954],
         [53.341533, -6.249332]
@@ -49,6 +53,20 @@ let init = () => {
 
     mymap.on('click', (e) => {
         document.getElementById("click-coords-display").innerHTML = e.latlng;
+        
+        if (saveLocations) {
+            console.log(e.latlng);
+
+            if (coordinates != undefined) {
+                coordinates = [...coordinates, [e.latlng["lat"], e.latlng["lng"]]];
+            } else {
+                coordinates = [e.latlng["lat"], e.latlng["lng"]];
+            }
+            
+            document.getElementById("saved-coordinates").innerHTML = JSON.stringify(coordinates);
+            console.log(coordinates);
+        }
+
     });
 
     L.geoJson(buildings, {
@@ -81,6 +99,10 @@ let init = () => {
         }
     
     }).addTo(mymap);
+}
+
+let startSavingLocations = () => {
+    saveLocations = !saveLocations;
 }
 
 init();
