@@ -1,6 +1,7 @@
-const corner1 = L.latLng(53.345806, -6.259954);
-const corner2 = L.latLng(53.341533, -6.249332);
-const mybounds = L.latLngBounds(corner1, corner2);
+/**
+ * Let each individual building be an individual object, meaning this should be in the form [{..}, {..}]
+ * This is an array of objects.
+ */
 let buildings = [{
     "type": "Feature",
     "properties": {
@@ -26,12 +27,16 @@ let buildings = [{
     }
 }];
 
-const mymap = L.map('mapid').fitBounds(mybounds).setMaxBounds([
-    [53.345806, -6.259954],
-    [53.341533, -6.249332]
-]);
-
+/**
+ * This is the main method, it will be run on load, if you want to add parameters you add them in between the () search "arrow functions" to learn the differences
+ * between this syntax and the pre-existing function() {} you were using
+ */
 let init = () => {
+    const mymap = L.map('mapid').fitBounds(L.latLngBounds(L.latLng(53.345806, -6.259954), L.latLng(53.341533, -6.249332))).setMaxBounds([
+        [53.345806, -6.259954],
+        [53.341533, -6.249332]
+    ]);
+
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 20,
         minZoom: 17,
